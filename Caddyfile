@@ -1,0 +1,16 @@
+{
+    servers :8000 {
+        listener_wrappers {
+            ngrok {
+                auth_token {$NGROK_AUTH_TOKEN}
+                tunnel http {
+                    domain {$NGROK_DOMAIN}
+                }
+            }
+        }
+    }
+}
+
+:8000 {
+    respond "Hello world"
+}
